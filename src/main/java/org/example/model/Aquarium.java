@@ -1,0 +1,31 @@
+package org.example.model;
+
+import lombok.Getter;
+
+@Getter
+public class Aquarium {
+    private int populationPoisson;
+    private final String fond;
+
+    public Aquarium() {
+        this.fond = "/org/example/img_1.png";
+        populationPoisson = 10;
+    }
+
+    /**
+     * permet d'augmenter le nombre de poisson dans l'aquarium
+     */
+    public int ajouterPoisson(){
+        int limit = 30;
+        System.out.println(populationPoisson + "po");
+        return populationPoisson < limit ? populationPoisson+=1 : limit;
+    }
+    /**
+     * permet diminuer le nombre de poisson dans l'aquarium
+     */
+    public int retirerPoisson(){
+        System.out.println(populationPoisson + "po");
+        return populationPoisson > 1 ? populationPoisson -= 1 : 0;
+    }
+
+}
