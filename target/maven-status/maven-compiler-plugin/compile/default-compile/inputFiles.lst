@@ -1,4 +1,10 @@
-/home/koffi/IdeaProjects/Aquarium/src/main/java/org/example/PrimaryController.java
+/home/koffi/IdeaProjects/Aquarium/src/main/java/org/example/view/AquariumVue.java
+/home/koffi/IdeaProjects/Aquarium/src/main/java/org/example/view/AlgueComposantGraphique.java
 /home/koffi/IdeaProjects/Aquarium/src/main/java/org/example/App.java
-/home/koffi/IdeaProjects/Aquarium/src/main/java/org/example/SecondaryController.java
+/home/koffi/IdeaProjects/Aquarium/src/main/java/org/example/controller/AquariumVueController.java
+/home/koffi/IdeaProjects/Aquarium/src/main/java/org/example/model/Algue.java
+/home/koffi/IdeaProjects/Aquarium/src/main/java/org/example/model/Aquarium.java
+/home/koffi/IdeaProjects/Aquarium/src/main/java/org/example/view/PoissonComposantGraphique.java
+/home/koffi/IdeaProjects/Aquarium/src/main/java/org/example/model/Poisson.java
 /home/koffi/IdeaProjects/Aquarium/src/main/java/module-info.java
+/home/koffi/IdeaProjects/Aquarium/src/main/java/org/example/view/AquariumComposantGraphique.java

@@ -4,13 +4,17 @@ import lombok.Getter;
 
 import java.util.Random;
 
+/**
+ * @Algue
+ * Permet de selectionner aléatoirement les algues
+ * (on pourra implémenter d'autres propriétés)
+ */
 @Getter
 public class Algue {
-    private final String image;
+    private final String imagePath;
 
     public Algue() {
         Random random = new Random();
-        image = "/org/example/alguedemer"+random.nextInt(3)+".png";
-        System.out.println(image);
+        imagePath = "/org/example/alguedemer"+random.nextInt(3)+".png";
     }
 }

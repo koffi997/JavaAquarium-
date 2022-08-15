@@ -2,13 +2,23 @@ package org.example.model;
 
 import lombok.Getter;
 
+
+/**
+ * @Aquarium
+ * gestion des propriétés direct lié à l'aquarium
+ * (on pourra implémenter d'autres propriétés)
+ */
 @Getter
 public class Aquarium {
     private int populationPoisson;
-    private final String fond;
+    private final String fondImagePath;
 
+    /**
+     * construit la classe avec une image par défaut
+     * et la population de poisson est initialisé à 10
+     */
     public Aquarium() {
-        this.fond = "/org/example/img_1.png";
+        this.fondImagePath = "/org/example/img.png";
         populationPoisson = 10;
     }
 

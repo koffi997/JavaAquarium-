@@ -16,16 +16,17 @@ public class AquariumVueController {
         aquariumVue.getAjoutPoissonBtn().setOnAction(event -> {
             aquariumVue.getAquariumComposantGraphique().getAquarium().ajouterPoisson();
             event.consume();
-            aquariumVue.getAquariumComposantGraphique().launch();
+            aquariumVue.getAquariumComposantGraphique().lancer();
 
         });
 
         aquariumVue.getRetirePoissonBtn().setOnAction(event -> {
             aquariumVue.getAquariumComposantGraphique().getAquarium().retirerPoisson();
             event.consume();
-            aquariumVue.getAquariumComposantGraphique().launch();
+            aquariumVue.getAquariumComposantGraphique().lancer();
         });
-        aquariumVue.getAquariumComposantGraphique().launch();
+        aquariumVue.getAquariumComposantGraphique().initAquarium();
+        aquariumVue.getAquariumComposantGraphique().lancer();
 
     }
 }
