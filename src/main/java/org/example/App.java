@@ -25,7 +25,13 @@ public class App extends Application {
         AquariumVueController  aquariumVueController = new AquariumVueController(aquariumVue);
         Scene scene = new Scene(aquariumVue.getParent());
         stage.setScene(scene);
+        stage.setResizable(false);
+        stage.setTitle("AQUARIUM");
         stage.show();
+    }
+
+    public void getToast(){
+
     }
 
 

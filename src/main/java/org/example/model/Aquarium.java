@@ -13,6 +13,9 @@ public class Aquarium {
     private int populationPoisson;
     private final String fondImagePath;
 
+    private final int LIMIT = 30;
+    private final int MIN_LIMIT = 1;
+
     /**
      * construit la classe avec une image par défaut
      * et la population de poisson est initialisé à 10
@@ -26,16 +29,15 @@ public class Aquarium {
      * permet d'augmenter le nombre de poisson dans l'aquarium
      */
     public int ajouterPoisson(){
-        int limit = 30;
         System.out.println(populationPoisson + "po");
-        return populationPoisson < limit ? populationPoisson+=1 : limit;
+        return populationPoisson < LIMIT ? populationPoisson+=1 : LIMIT;
     }
     /**
      * permet diminuer le nombre de poisson dans l'aquarium
      */
     public int retirerPoisson(){
         System.out.println(populationPoisson + "po");
-        return populationPoisson > 1 ? populationPoisson -= 1 : 0;
+        return populationPoisson > MIN_LIMIT ? populationPoisson -= 1 : MIN_LIMIT;
     }
 
 }

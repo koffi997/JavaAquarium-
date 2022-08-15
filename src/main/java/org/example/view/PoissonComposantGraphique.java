@@ -41,7 +41,7 @@ public class PoissonComposantGraphique extends ImageView {
      */
     private double[] randomPosition() {
         double[] pos = new double[2];
-        pos[0] = random.nextInt(600);//x (aquarium) - x (poisson)
+        pos[0] = random.nextInt(585);//x (aquarium) - x (poisson)
         pos[1] = random.nextInt(450); //y (aquarium) - y (poisson)
         return pos;
     }

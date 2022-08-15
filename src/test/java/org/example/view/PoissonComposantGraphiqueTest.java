@@ -11,15 +11,15 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class PoissonComposantGraphiqueTest {
 
-    private volatile PoissonComposantGraphique  poissonComposantGraphique;
+    private volatile PoissonComposantGraphique poissonComposantGraphique;
 
     @AfterEach
     public void prepareObjetPoissonComposantGraphiqe() {
-       Platform.exit();
+        Platform.exit();
     }
 
     @Test
-    public void testInitialisationPoisson(){
+    public void testInitialisationPoisson() {
         Platform.setImplicitExit(false);
         Platform.startup(() -> {
             Poisson poisson = new Poisson();
@@ -31,8 +31,8 @@ class PoissonComposantGraphiqueTest {
     }
 
     @Test
-    public void testRamdomPosition(){
-       // double[] positionActuelle = poissonComposantGraphique.getPosition();
+    public void testRamdomPosition() {
+        // double[] positionActuelle = poissonComposantGraphique.getPosition();
         poissonComposantGraphique.goToRandomPlace(false);
         assertNotNull(poissonComposantGraphique.getImage());
     }
