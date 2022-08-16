@@ -12,7 +12,7 @@ public class Aquarium {
     private int populationPoisson;
     private final String fondImagePath;
 
-    private final int LIMIT = 30;
+    private final int LIMIT = 15;
     private final int MIN_LIMIT = 1;
 
     /**
