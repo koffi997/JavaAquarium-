@@ -29,6 +29,13 @@ public class App extends Application {
         stage.setTitle("AQUARIUM");
         stage.show();
     }
+
+    public void getToast(){
+
+    }
+
+
+
     public static void main(String[] args) {
         launch();
     }
