@@ -1,6 +1,5 @@
 package org.example.controller;
 
-import javafx.scene.control.Alert;
 import org.example.model.Aquarium;
 import org.example.view.AquariumVue;
 
@@ -20,7 +19,7 @@ public class AquariumVueController {
             event.consume();
             aquariumVue.getAquariumComposantGraphique().lancer();
             if (population == aquarium.getLIMIT()) {
-                aquariumVue.lancerAlert("Attention!!! vous avez atteint la limite");
+                aquariumVue.lancerAlert("Attention!!! vous avez atteint la limite supérieure");
             }
         });
 
@@ -29,12 +28,11 @@ public class AquariumVueController {
             event.consume();
             aquariumVue.getAquariumComposantGraphique().lancer();
             if (population == aquarium.getMIN_LIMIT()) {
-                aquariumVue.lancerAlert("Attention!!! vous avez atteint la limite");
+                aquariumVue.lancerAlert("Attention!!! vous avez atteint la limite inférieure");
 
             }
         });
         aquariumVue.getAquariumComposantGraphique().initAquarium();
         aquariumVue.getAquariumComposantGraphique().lancer();
-
     }
 }

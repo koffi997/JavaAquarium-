@@ -1,40 +1,46 @@
 package org.example.view;
 
+import de.saxsys.javafx.test.JfxRunner;
 import javafx.application.Platform;
 import org.example.model.Poisson;
-import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
 
-import java.util.Arrays;
+import static org.junit.jupiter.api.Assertions.*;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
+@RunWith(JfxRunner.class)
 class PoissonComposantGraphiqueTest {
 
-    private volatile PoissonComposantGraphique poissonComposantGraphique;
 
-    @AfterEach
+    private PoissonComposantGraphique poissonComposantGraphique;
+
+
+    @BeforeAll
+    static void prepareEnvironnement() {
+        Platform.startup(() -> {
+        });
+    }
+
+    @BeforeEach
     public void prepareObjetPoissonComposantGraphiqe() {
-        Platform.exit();
+        Poisson poisson = new Poisson();
+        this.poissonComposantGraphique = new PoissonComposantGraphique(poisson);
     }
 
     @Test
     public void testInitialisationPoisson() {
-        Platform.setImplicitExit(false);
-        Platform.startup(() -> {
-            Poisson poisson = new Poisson();
-            this.poissonComposantGraphique = new PoissonComposantGraphique(poisson);
-            assertNotNull(poissonComposantGraphique.getImage());
-            System.out.println(Arrays.toString(poissonComposantGraphique.getPosition()));
-
-        });
+        poissonComposantGraphique.init();
+        assertNotNull(poissonComposantGraphique.getImage());
+        assertTrue(poissonComposantGraphique.getPosition()[0]>-1);
     }
 
     @Test
-    public void testRamdomPosition() {
-        // double[] positionActuelle = poissonComposantGraphique.getPosition();
-        poissonComposantGraphique.goToRandomPlace(false);
-        assertNotNull(poissonComposantGraphique.getImage());
+    public void testAllerAPositionAleatoire() {
+        poissonComposantGraphique.init();
+        double[] position = poissonComposantGraphique.getPosition();
+        poissonComposantGraphique.allerAPositionAleatoire(false);
+        assertEquals(position[0], poissonComposantGraphique.getPosition()[0]);
     }
-
 }

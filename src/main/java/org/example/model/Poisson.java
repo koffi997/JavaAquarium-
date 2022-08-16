@@ -10,7 +10,7 @@ import lombok.Getter;
 public class Poisson {
     private final String imagePath;
 
-    public Poisson(){
-        imagePath = "/org/example/poi.gif";
+    public Poisson() {
+        imagePath = "/org/example/poisson.gif";
     }
 }

@@ -59,8 +59,6 @@ public class AquariumVue {
         // Header Text: null
         alert.setHeaderText(null);
         alert.setContentText(message);
-
         alert.showAndWait();
     }
-
 }

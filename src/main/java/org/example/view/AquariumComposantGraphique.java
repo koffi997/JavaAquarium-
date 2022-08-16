@@ -14,6 +14,9 @@ import java.util.ArrayList;
 import java.util.Optional;
 import java.util.Random;
 
+/**
+ * La reprensentation graphique de l'aquarium
+ */
 @Getter
 public class AquariumComposantGraphique extends Group {
     private final Aquarium aquarium;
@@ -59,6 +62,10 @@ public class AquariumComposantGraphique extends Group {
         if (resourceAsStream.isPresent()) {
             Image image = new Image(resourceAsStream.get(), 680, 550, false, false);
             this.fond = new ImageView(image);
+        } else {
+            this.fond = new ImageView();
+            this.fond.setFitHeight(550);
+            this.fond.setFitWidth(680);
         }
     }
 
@@ -68,7 +75,7 @@ public class AquariumComposantGraphique extends Group {
     private void construirePoisson() {
         PoissonComposantGraphique pcg = new PoissonComposantGraphique(new Poisson());
         pcg.init();
-        pcg.goToRandomPlace(true);
+        pcg.allerAPositionAleatoire(true);
         //positionner le poisson dans le plan aléatoire
         //générer un nombre aléatoire entre touts les elements de l'aquarium
         int n = random.nextInt((this.getChildren().size() - 1) + 1) + 1;
@@ -82,7 +89,7 @@ public class AquariumComposantGraphique extends Group {
     private void construireAlgue() {
         AlgueComposantGraphique acg = new AlgueComposantGraphique(new Algue());
         //positionner l'algue dans le plan aléatoirement
-        //générer un nombre aléatoire entre touts les elements de l'aquarium
+        //générer un nombre aléatoire entre tous les elements de l'aquarium
         int n = random.nextInt((this.getChildren().size() - 1) + 1) + 1;
         this.getChildren().add(n, acg);
     }

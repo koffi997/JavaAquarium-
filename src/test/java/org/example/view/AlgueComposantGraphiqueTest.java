@@ -3,6 +3,7 @@ package org.example.view;
 import org.example.model.Algue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class AlgueComposantGraphiqueTest {
@@ -17,10 +18,11 @@ class AlgueComposantGraphiqueTest {
         Algue algue = new Algue();
         this.algueComposantGraphique = new AlgueComposantGraphique(algue);
     }
+
     @Test
-    public void verifieConstructionAlgue(){
+    public void verifieConstructionAlgue() {
         assertNotNull(algueComposantGraphique.getImage());
-        assertTrue(algueComposantGraphique.getLayoutX()< LAYOUT_MAX_X);
-        assertEquals(algueComposantGraphique.getLayoutY(),LAYOUT_Y);
+        assertTrue(algueComposantGraphique.getLayoutX() < LAYOUT_MAX_X);
+        assertEquals(algueComposantGraphique.getLayoutY(), LAYOUT_Y);
     }
 }

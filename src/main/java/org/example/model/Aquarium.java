@@ -4,8 +4,7 @@ import lombok.Getter;
 
 
 /**
- * @Aquarium
- * gestion des propriétés direct lié à l'aquarium
+ * @Aquarium gestion des propriétés direct lié à l'aquarium
  * (on pourra implémenter d'autres propriétés)
  */
 @Getter
@@ -21,23 +20,21 @@ public class Aquarium {
      * et la population de poisson est initialisé à 10
      */
     public Aquarium() {
-        this.fondImagePath = "/org/example/img.png";
-        populationPoisson = 10;
+        this.fondImagePath = "/org/example/aqua.png";
+        populationPoisson = 3;
     }
 
     /**
      * permet d'augmenter le nombre de poisson dans l'aquarium
      */
-    public int ajouterPoisson(){
-        System.out.println(populationPoisson + "po");
-        return populationPoisson < LIMIT ? populationPoisson+=1 : LIMIT;
+    public int ajouterPoisson() {
+        return populationPoisson < LIMIT ? populationPoisson += 1 : LIMIT;
     }
+
     /**
      * permet diminuer le nombre de poisson dans l'aquarium
      */
-    public int retirerPoisson(){
-        System.out.println(populationPoisson + "po");
+    public int retirerPoisson() {
         return populationPoisson > MIN_LIMIT ? populationPoisson -= 1 : MIN_LIMIT;
     }
-
 }

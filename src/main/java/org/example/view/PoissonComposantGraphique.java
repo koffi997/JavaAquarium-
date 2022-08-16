@@ -54,27 +54,31 @@ public class PoissonComposantGraphique extends ImageView {
         //positionner  un poisson aléatoirement dans l'aquarium
         position = randomPosition();
         this.setLayoutX(position[0]);
-        this.setLayoutX(position[1]);
+        this.setLayoutY(position[1]);
 
         //initialiser l'animation
         timeline = new Timeline();
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.setAutoReverse(true);
-    }
 
-    /**
-     * arreter le deplacement du poisson
-     */
-    public void arreterPoisson() {
-        timeline.stop();
+        this.layoutXProperty().addListener(observable -> {
+            if (collision()) {
+                timeline.stop();
+                position = randomPosition();
+                this.setLayoutX(position[0]);
+                this.setLayoutY(position[1]);
+                allerAPositionAleatoire(true);
+            }
+        });
     }
 
     /**
      * faire deplacer le poisson vers un emplacement aléatoire
      *
-     * @param recursive est un boolean,la fonction est repété quand il est à true
+     * @param recursive : repète les tours du poisson dans l'aquarium.
+     *                  à false le poisson s'arrète après un tour
      */
-    public void goToRandomPlace(boolean recursive) {
+    public void allerAPositionAleatoire(boolean recursive) {
         double[] positionSuivante = randomPosition();
         position[0] = this.getLayoutX();
         position[1] = this.getLayoutY();
@@ -102,9 +106,25 @@ public class PoissonComposantGraphique extends ImageView {
         timeline.getKeyFrames().clear();
         timeline.getKeyFrames().add(new KeyFrame(Duration.millis(temps), event -> {
             if (recursive) {
-                goToRandomPlace(true);
+                allerAPositionAleatoire(true);
             }
+            position[0] = this.getLayoutX();
+            position[1] = this.getLayoutY();
         }, x, y));
         timeline.play();
+    }
+
+    /**
+     * @return true si le poisson est en contact avec un autre
+     */
+    private boolean collision() {
+        if (this.getParent() != null) {
+            return this.getParent()
+                    .getChildrenUnmodifiable()
+                    .stream()
+                    .filter(node -> node instanceof PoissonComposantGraphique && !node.equals(this))
+                    .anyMatch(node -> this.getBoundsInParent().intersects(node.getBoundsInParent()));
+        }
+        return false;
     }
 }
